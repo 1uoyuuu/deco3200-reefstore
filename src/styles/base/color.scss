@@ -1,0 +1,20 @@
+//setting up color palette
+$unselected: rgba(255, 255, 255, 80);
+$bg: #f9f8ff;
+$pink: #fa969a;
+$blue: #6bbffc;
+$green: #71de92;
+$orange: #f8b971;
+
+.pink {
+  background-color: $pink;
+}
+.orange {
+  background-color: $orange;
+}
+.green {
+  background-color: $green;
+}
+.blue {
+  background-color: $blue;
+}

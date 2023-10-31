@@ -1,0 +1,31 @@
+@import "base/reset.scss", "base/typography.scss", "base/color.scss";
+@import "component/navigation.scss", "component/grid.scss",
+  "component/button.scss", "component/carousel.scss";
+
+@import "page/homepage.scss", "page/get_involved.scss", "page/visit.scss",
+  "page/learn_more.scss";
+
+// import subpage stylesheet
+@import "page/create.scss";
+
+:root {
+  font-size: 12px;
+  overflow-x: hidden;
+  background-color: $bg;
+}
+
+* {
+  color: black;
+}
+
+// make sure images take up all the width/height with fcorrect propotion by default
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

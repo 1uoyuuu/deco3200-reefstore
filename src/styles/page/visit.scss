@@ -1,0 +1,114 @@
+#visit-page {
+  #hero-section {
+    height: 100vh; // Take up 100% of the viewport height
+    width: 100%; // Take up 100% of the viewport width
+
+    background-image: url("/src/images/visit-bg.jpg");
+    background-size: cover; // Cover the entire window
+    background-repeat: no-repeat; // Do not repeat the image
+    background-position: center center; // Center the image
+
+    h1 {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+
+      //adjust to fit different pages
+      color: $blue;
+      width: 60%;
+    }
+  }
+
+  #location-section {
+    margin: 2%;
+    #cobe {
+      width: 700px;
+      height: 700px;
+    }
+    //remove the default grid padding
+    .grid-item:not(:first-child) {
+      padding: 0;
+    }
+  }
+  .empty-header {
+    height: 5rem;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+
+    .back-btn {
+      visibility: hidden;
+    }
+  }
+  //accordion style
+  .ac {
+    border-bottom: 1px solid black;
+    background-color: $bg;
+
+    .ac-trigger {
+      cursor: pointer;
+      background-color: $bg;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2% 4%;
+      &:hover {
+        background-color: $blue;
+        transition: all 0.3s ease;
+      }
+      svg {
+        transition: transform 0.5s ease;
+        path {
+          stroke-width: 2;
+        }
+      }
+    }
+
+    .ac-panel {
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    &.js-enabled .ac-panel {
+      visibility: hidden;
+    }
+    &.ac.is-active {
+      .ac-trigger {
+        background-color: $blue;
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+      .ac-panel {
+        visibility: visible;
+      }
+    }
+  }
+
+  .location-list {
+    background-color: $bg;
+
+    .location-item {
+      border-top: 1px solid black;
+      padding: 2% 4%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      //they should be treated as button to reveal more information
+      cursor: pointer;
+      span {
+        font-size: 2rem;
+        text-transform: capitalize;
+      }
+      &:hover {
+        span:first-child {
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

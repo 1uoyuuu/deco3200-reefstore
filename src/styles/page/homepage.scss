@@ -1,0 +1,59 @@
+#landing-section {
+  h1 {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  canvas {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+#comparison-section {
+  position: relative;
+  padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
+
+  //comparison-image container will expand to the whole viewpoint
+  .comparison-image {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+    }
+  }
+  //setup for the after image to be hidden at first
+  .after-image {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    transform: translate(100%, 0px);
+    img {
+      transform: translate(-100%, 0px);
+    }
+  }
+}
+
+#they-are-precious {
+  div {
+    background-color: $pink;
+  }
+}
+
+#reefstore-is-the-solution {
+  .approach-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .approach-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

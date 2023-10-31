@@ -1,0 +1,50 @@
+.grid {
+  margin: 0 2%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(10vh, auto);
+  border-left: 1px solid black;
+  //setting up column rule (one element can only take up following columns value)
+  .grid-col-12 {
+    grid-column: span 12;
+  }
+  .grid-col-9 {
+    grid-column: span 9;
+  }
+  .grid-col-8 {
+    grid-column: span 8;
+  }
+  .grid-col-6 {
+    grid-column: span 6;
+  }
+  .grid-col-4 {
+    grid-column: span 4;
+  }
+  .grid-col-3 {
+    grid-column: span 3;
+  }
+
+  //setting up row rule
+  .grid-row-1 {
+    grid-row-start: span 1;
+  }
+  .grid-row-2 {
+    grid-row-start: span 2;
+  }
+  .grid-row-3 {
+    grid-row-start: span 3;
+  }
+  .grid-row-4 {
+    grid-row-start: span 4;
+  }
+}
+
+.grid-item {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding: 2rem;
+
+  &:first-child {
+    border-top: 1px solid black;
+  }
+}

@@ -1,0 +1,169 @@
+// ------------------top navigation bar------------------
+#top-nav {
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  // border-bottom: 1px solid black;
+  #logo {
+    width: 5rem;
+  }
+  #logo-icon {
+    //make sure to stay still
+    position: fixed;
+    left: 48.8%;
+    // rotate animation when scrolling
+    // credit: https://css-tricks.com/books/greatest-css-tricks/scroll-animation/
+    animation: rotate 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    path {
+      fill: black;
+    }
+  }
+  #menu-btn {
+    //clear the default button style
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+}
+
+// ------------------navigation overlay------------------
+#top-nav-overlay {
+  position: fixed;
+  background: $bg;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+
+  //by default the overlay container is hidden
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+
+  //when overlay container opens
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+    //transition setup
+    transition: opacity 0.35s, visibility 0.35s, height 0.35s,
+      background-color 0.5s;
+
+    li {
+      animation: fadeInRight 0.5s ease forwards;
+      //using for loop to create delay effect for each menu item
+      @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}) {
+          animation-delay: 0.2s + $i * 0.05;
+        }
+      }
+    }
+  }
+
+  nav {
+    position: relative;
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    text-transform: uppercase;
+
+    ul {
+      //clear the default list style setup
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      height: 100%;
+
+      li {
+        padding: 0 2%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6rem;
+
+        height: 25%;
+        min-height: 50px;
+        position: relative;
+        opacity: 0;
+        * {
+          color: black;
+          opacity: 0.6;
+        }
+        //set up the number style
+        span {
+          font-size: 2rem;
+        }
+        a {
+          display: inline-block;
+          position: relative;
+          text-decoration: none;
+          overflow: hidden;
+          font-size: 4rem;
+          //setup the sublink style, they shouldn't be displayed if not hovering
+          &:not(:first-of-type) {
+            text-transform: capitalize;
+            font-size: 2rem;
+            visibility: hidden;
+          }
+        }
+
+        &:hover {
+          * {
+            opacity: 1;
+          }
+          a:not(:first-of-type) {
+            visibility: visible;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              width: 0%;
+              transform: translateX(-50%);
+              height: 1.5px;
+              background: black;
+              transition: 0.35s;
+            }
+
+            &:hover::after,
+            &:focus::after,
+            &:active::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// animation declaration
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}

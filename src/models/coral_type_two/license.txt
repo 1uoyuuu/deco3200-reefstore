@@ -1,0 +1,11 @@
+Model Information:
+* title:	Purple coral
+* source:	https://sketchfab.com/3d-models/purple-coral-71ad959a42fb43fc9b819fdc4368f417
+* author:	vaporclaws (https://sketchfab.com/vaporclaws)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Purple coral" (https://sketchfab.com/3d-models/purple-coral-71ad959a42fb43fc9b819fdc4368f417) by vaporclaws (https://sketchfab.com/vaporclaws) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

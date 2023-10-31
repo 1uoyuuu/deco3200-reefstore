@@ -1,0 +1,33 @@
+button {
+  cursor: pointer;
+}
+
+// big buttons with rounded edge
+.cta-btn {
+  background-color: $bg;
+  border: 1px solid black;
+  border-radius: 200px;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+
+  &:hover {
+    transition: all 0.3s ease;
+    transform: translateY(5%);
+  }
+}
+
+// normal buttons used for step navigation
+.back-btn,
+.next-btn {
+  height: 4rem;
+  padding: 2% 4%;
+  background-color: $bg;
+  border: none;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 3rem;
+  }
+}
