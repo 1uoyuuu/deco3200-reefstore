@@ -14,7 +14,7 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
-      markers: true, //marker helper
+      // markers: true, //marker helper
     },
     defaults: { ease: "none" },
   });
@@ -30,5 +30,23 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
       { xPercent: -100, x: 0 },
       { xPercent: 0 },
       0
+    )
+    .fromTo(
+      section.querySelector(".after-image h1"),
+      { opacity: 0 }, // autoAlpha handles both visibility and opacity
+      { opacity: 0.8 },
+      1 // You can adjust this time to control when the h1 starts fading in relative to the rest of the animation
     );
 });
+
+window.onload = function () {
+  setTimeout(() => {
+    gsap.to("#preloader", {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        document.getElementById("preloader").style.display = "none";
+      },
+    });
+  }, 2000); // give the shadertoy 2 seconds buffer time to complete the loading and hide the gui completely
+};

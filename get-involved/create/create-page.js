@@ -2,7 +2,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-
+import { FlakesTexture } from "three/examples/jsm/textures/FlakesTexture.js";
 import GUI from "lil-gui";
 
 // Global variables
@@ -27,7 +27,7 @@ material = {
   emissive: "#000000",
 };
 gui.add(material, "type", ["one", "two", "three"]).onFinishChange(() => {
-  initCoral("coral_type_" + material.type);
+  initCoral("coral-type-" + material.type);
 });
 const materialFolder = gui.addFolder("Material");
 materialFolder.add(material, "roughness", 0, 1); //slider
@@ -65,8 +65,15 @@ function initScene() {
   //Instantiate a new renderer and set its size
   renderer = new THREE.WebGLRenderer({
     alpha: true,
-  }); //Alpha: true allows for the transparent background
+    antialias: true,
+  });
+  //Alpha: true allows for the transparent background
   renderer.setSize(coralContainer.offsetWidth, coralContainer.offsetHeight);
+
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.25;
+
   coralContainer.appendChild(renderer.domElement);
   // **************************
   // *    Lighting Setup      *
@@ -123,11 +130,9 @@ function initCoral(coralType) {
   // **************************
   // *      Loader Setup      *
   // **************************
-  if (mesh) {
-    // Remove old model from scene
-    console.log("removing old mesh: " + mesh);
-    scene.remove(mesh);
-  }
+
+  // Destroy existing coral if there is any.
+  DestroyCoral(mesh);
   const loader = new GLTFLoader();
   loader.load(
     MODEL_PATH,
@@ -155,12 +160,29 @@ function initCoral(coralType) {
 }
 
 function setMaterial(material, mesh) {
-  const newMaterial = new THREE.MeshStandardMaterial({
-    color: parseInt("0x" + material.baseColor.substring(1)),
-    emissive: parseInt("0x" + material.emissive.substring(1)),
+  const texture = new THREE.CanvasTexture(new FlakesTexture());
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.x = 10;
+  texture.repeat.y = 8;
+
+  const materialConstructor = {
+    clearcoat: 0.5,
+    clearcoatRoughness: 0.1,
     metalness: material.metalness,
     roughness: material.roughness,
-  });
+    color: parseInt("0x" + material.baseColor.substring(1)),
+    emissive: parseInt("0x" + material.emissive.substring(1)),
+    normalMap: texture,
+    normalScale: new THREE.Vector2(0.15, 0.15),
+  };
+  // const newMaterial = new THREE.MeshStandardMaterial({
+  //   color: parseInt("0x" + material.baseColor.substring(1)),
+  //   emissive: parseInt("0x" + material.emissive.substring(1)),
+  //   metalness: material.metalness,
+  //   roughness: material.roughness,
+  // });
+  const newMaterial = new THREE.MeshPhysicalMaterial(materialConstructor);
   mesh.traverse((o) => {
     if (o.isMesh) {
       o.material = newMaterial;
@@ -194,7 +216,11 @@ function setupMSF(form) {
   backBtns[0].classList.add("msf-visually-hide");
   nextBtns[msfPages.length - 1].classList.add("msf-hide");
   //if the form is gadget form, then some magical tweak will be added,
-
+  const customiseSection = document.getElementById("customise-section");
+  const resultSection = document.getElementById("result-section");
+  const coralInspector = document.getElementById("coral-inspector");
+  const coralCustomiser = document.getElementById("coral-customiser");
+  const resultButtons = document.getElementById("result-buttons");
   //user can always goes back to the previous page without any problem
   //so the back buttons should work when user click it
   backBtns.forEach((btn) => {
@@ -210,6 +236,20 @@ function setupMSF(form) {
       //change the current page
       currentPage = msfPages[msfIndex];
       showPage(currentPage);
+
+      if (msfIndex == 2) {
+        customiseSection.insertBefore(coralInspector, coralCustomiser);
+        if (mesh && scene) {
+          DestroyCoral(mesh);
+        } else {
+          initScene();
+        }
+        initCoral("coral-type-" + material.type);
+      }
+
+      if (msfIndex == 3) {
+        resultSection.insertBefore(coralInspector, resultButtons);
+      }
     });
   });
   nextBtns.forEach((btn) => {
@@ -227,9 +267,26 @@ function setupMSF(form) {
       showPage(currentPage);
 
       if (msfIndex == 2) {
-        initScene();
-        initCoral("coral_type_one");
+        customiseSection.insertBefore(coralInspector, coralCustomiser);
+        if (mesh && scene) {
+          DestroyCoral(mesh);
+        } else {
+          initScene();
+        }
+        initCoral("coral-type-" + material.type);
+      }
+
+      if (msfIndex == 3) {
+        resultSection.insertBefore(coralInspector, resultButtons);
       }
     });
   });
+}
+
+function DestroyCoral(mesh) {
+  if (mesh) {
+    // Remove old model from scene
+    console.log("removing our coral mesh....");
+    scene.remove(mesh);
+  }
 }

@@ -8,7 +8,8 @@
   width: 100%;
   position: fixed;
   z-index: 999;
-  // border-bottom: 1px solid black;
+  background-color: $bg;
+  border-bottom: 1px solid black;
   #logo {
     width: 5rem;
   }

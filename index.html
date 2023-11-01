@@ -65,11 +65,21 @@
       </ul>
     </nav>
   </div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <p>Loading...</p>
+  </div>
   <main>
     <section id="landing-section">
-      <h1>Ready to embark on a coral encounter journey?</h1>
-      <canvas id="glcanvas">
-      </canvas>
+      <h1 class="white">Ready to embark on a coral encounter journey?</h1>
+      <p>Scroll down to explore the wonderful underwater world</p>
+      <div class="background-overlay">
+      </div>
+      <div class="background">
+        <iframe allowtransparence="true" width="640" height="360" frameborder="0"
+          src="https://www.shadertoy.com/embed/wdGBWG?gui=false&t=10&paused=false&muted=true"
+          style="overflow:hidden;height:100%;width:100%"></iframe>
+      </div>
     </section>
     <section id="comparison-section">
       <div class="comparison-image before-image">
@@ -77,6 +87,7 @@
       </div>
       <div class="comparison-image after-image">
         <img src="src/images/ocean-after.jpg" alt="after">
+        <h1 class="white">As you can see, coral ecosystems are deteriorating fast...</h1>
       </div>
     </section>
     <section id="they-are-precious" class="grid">

@@ -143,6 +143,17 @@
         }
       }
     }
+    &#result-section {
+      padding: 0;
+      gap: 0;
+      & > div:first-child {
+        flex: 2;
+        border-right: 1px solid black;
+      }
+      & > div:last-child {
+        flex: 1;
+      }
+    }
   }
 
   .progress {
