@@ -31,3 +31,10 @@ button {
     font-size: 3rem;
   }
 }
+
+.arrow-btn {
+  padding: 2%;
+  background-color: $bg;
+  border: 1px solid black;
+  margin: -1px; //remove overlapping border
+}

@@ -1,12 +1,12 @@
 import Glide from "@glidejs/glide";
 
 const config = {
-  type: "slider",
+  type: "carousel",
   rewind: true,
   startAt: 0,
   perView: 4,
   autoplay: false, //autoplay the carousel every 2 seconds
-  gap: 0, //A size of the gap added between slides.
+  gap: 24, //A size of the gap added between slides.
 };
 
 const carousel = document.querySelector(".glide");

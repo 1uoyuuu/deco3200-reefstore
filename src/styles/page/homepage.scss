@@ -101,14 +101,12 @@
 }
 
 #they-are-precious {
+  border-top: 1px solid black;
   margin-top: 4%;
-  div {
-    background-color: $pink;
-  }
 }
 
 #reefstore-is-the-solution {
-  .approach-step {
+  div.approach-step {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -116,6 +114,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    &:nth-last-of-type(1) {
+      background-color: $blue;
+    }
+    &:nth-last-of-type(4) {
+      background-color: $green;
+    }
+    &:nth-last-of-type(5) {
+      background-color: $orange;
+    }
+    &:nth-last-of-type(8) {
+      background-color: $pink;
     }
   }
 }

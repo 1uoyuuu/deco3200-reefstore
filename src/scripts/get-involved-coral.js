@@ -24,7 +24,7 @@ let controls;
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
-const model = "/src/models/coral_piece/scene.gltf";
+const model = "/src/models/coral-type-two/scene.gltf";
 //Load the file
 loader.load(
   model,

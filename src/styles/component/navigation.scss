@@ -31,7 +31,15 @@
     }
 
     path {
-      fill: black;
+      $colors: $pink, $blue, $orange, $green;
+      $repeat-each: 2;
+      @for $i from 1 through (length($colors) * $repeat-each) {
+        $color-index: ceil(calc($i / $repeat-each));
+        $color: nth($colors, $color-index);
+        &:nth-child(#{$i}) {
+          fill: $color;
+        }
+      }
     }
   }
   #menu-btn {
