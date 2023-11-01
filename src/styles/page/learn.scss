@@ -1,0 +1,65 @@
+#learn-page {
+  #hero-section {
+    height: 100vh; // Take up 100% of the viewport height
+    width: 100%; // Take up 100% of the viewport width
+
+    background-image: url("/src/images/learn-more-background.jpg");
+    background-size: cover; // Cover the entire window
+    background-repeat: no-repeat; // Do not repeat the image
+    background-position: center center; // Center the image
+
+    h1 {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+
+      //adjust to fit different pages
+      color: $green;
+      width: 60%;
+    }
+  }
+  #learn-importance {
+    margin-top: 4rem;
+    border-top: 1px solid black;
+    #importance-text {
+      min-height: 420px;
+      padding: 0;
+      h2 {
+        border-bottom: 1px solid black;
+        padding: 2rem 4rem;
+        text-transform: capitalize;
+      }
+      p {
+        padding: 4rem;
+      }
+    }
+    #importance-control {
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+
+      .progress-container {
+        align-items: center;
+        flex: 2;
+        display: flex;
+        justify-content: space-around;
+        .progress-dot {
+          height: 2rem;
+          width: 2rem;
+          border: 1px solid black;
+          border-radius: 50%;
+          display: inline-block;
+
+          &.active {
+            background-color: black;
+          }
+        }
+      }
+    }
+  }
+  #learn-story {
+  }
+}

@@ -37,4 +37,5 @@ button {
   background-color: $bg;
   border: 1px solid black;
   margin: -1px; //remove overlapping border
+  aspect-ratio: 1 / 1; //make sure the button stays as square
 }
