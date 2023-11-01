@@ -38,7 +38,6 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
       1 // You can adjust this time to control when the h1 starts fading in relative to the rest of the animation
     );
 });
-
 window.onload = function () {
   setTimeout(() => {
     gsap.to("#preloader", {
