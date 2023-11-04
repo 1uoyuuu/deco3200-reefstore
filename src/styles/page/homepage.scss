@@ -68,6 +68,36 @@
   position: relative;
   padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
 
+  img.little-fish {
+    position: absolute !important;
+    width: 4rem !important; /* or any other size */
+    height: 4rem !important; /* or any other size */
+    &:nth-child(2) {
+      width: 6rem !important;
+      height: 6rem !important;
+      left: 55vw;
+      top: 30vh;
+    }
+    &:nth-child(3) {
+      left: 90vw;
+      top: 23vh;
+    }
+  }
+  img.little-coral {
+    position: absolute !important;
+    width: 8rem !important;
+    height: 8rem !important;
+    &:nth-child(4) {
+      width: 6rem !important;
+      height: 6rem !important;
+      left: 2vw;
+      top: 80vh;
+    }
+    &:nth-child(5) {
+      left: 40vw;
+      top: 75vh;
+    }
+  }
   //comparison-image container will expand to the whole viewpoint
   .comparison-image {
     width: 100%;
@@ -101,32 +131,42 @@
 }
 
 #they-are-precious {
-  border-top: 1px solid black;
-  margin-top: 4%;
+  margin-top: 10%;
+  h1 {
+    margin: 5rem;
+  }
 }
-
+#what-can-we-do {
+  h1 {
+    margin: 5rem;
+    width: 75%;
+  }
+}
 #reefstore-is-the-solution {
+  h1 {
+    margin: 5rem;
+  }
+  path {
+    $colors: $pink, $blue, $orange, $green;
+    $repeat-each: 2;
+    @for $i from 1 through (length($colors) * $repeat-each) {
+      $color-index: ceil(calc($i / $repeat-each));
+      $color: nth($colors, $color-index);
+      &:nth-child(#{$i}) {
+        fill: $color;
+      }
+    }
+  }
   div.approach-step {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
+    padding: 5.5rem;
     .approach-heading {
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-
-    &:nth-last-of-type(1) {
-      background-color: $blue;
-    }
-    &:nth-last-of-type(4) {
-      background-color: $green;
-    }
-    &:nth-last-of-type(5) {
-      background-color: $orange;
-    }
-    &:nth-last-of-type(8) {
-      background-color: $pink;
     }
   }
 }

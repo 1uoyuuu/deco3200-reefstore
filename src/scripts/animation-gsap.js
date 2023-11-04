@@ -14,20 +14,20 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
-      // markers: true, //marker helper
+      markers: true, //marker helper
     },
     defaults: { ease: "none" },
   });
   // animate the container one way...
   tl.fromTo(
     section.querySelector(".after-image"),
-    { xPercent: 100, x: 0 },
+    { xPercent: 300, x: 0 },
     { xPercent: 0 }
   )
     // ...and the image the opposite way (at the same time)
     .fromTo(
       section.querySelector(".after-image img"),
-      { xPercent: -100, x: 0 },
+      { xPercent: -300, x: 0 },
       { xPercent: 0 },
       0
     )
@@ -40,11 +40,13 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
 });
 window.onload = function () {
   setTimeout(() => {
+    document.body.style.position = "fixed";
     gsap.to("#preloader", {
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
         document.getElementById("preloader").style.display = "none";
+        document.body.style.position = "";
       },
     });
   }, 2000); // give the shadertoy 2 seconds buffer time to complete the loading and hide the gui completely
