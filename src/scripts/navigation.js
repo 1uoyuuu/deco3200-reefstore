@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Get elements
   const menuBtn = document.getElementById("menu-btn");
+  const topNav = document.getElementById("top-nav");
   const topNavOverlay = document.getElementById("top-nav-overlay");
   const overlayMenuListItems = document.querySelectorAll("#overlay-menu ul li");
 
@@ -12,13 +13,19 @@ document.addEventListener("DOMContentLoaded", function () {
     3: "#f8b971", // orange
   };
 
+  topNav.style.backgroundColor = topNavOverlay.classList.contains("open")
+    ? ""
+    : "#f9f8ff";
+
   // Menu button click event
   menuBtn.addEventListener("click", function () {
     topNavOverlay.classList.toggle("open");
     this.textContent = topNavOverlay.classList.contains("open")
       ? "(Close)"
       : "(Menu)";
-
+    topNav.style.backgroundColor = topNavOverlay.classList.contains("open")
+      ? ""
+      : "#f9f8ff";
     // Disable or enable body scrolling based on whether the overlay is open
     document.body.style.overflow = topNavOverlay.classList.contains("open")
       ? "hidden"

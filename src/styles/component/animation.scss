@@ -1,0 +1,150 @@
+// --------------------------------
+// |     IMAGE SCALE UP           |
+// --------------------------------
+img.show-on-scroll {
+  will-change: transform, opacity;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 1.2s ease;
+  &.is-visible {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+img.show-on-scroll.rotate-in {
+  will-change: transform, opacity;
+  transform: translateZ(-200px) rotate(-45deg) scale(0);
+  opacity: 0;
+  transition: transform 0.8s ease-in;
+  &.is-visible {
+    transform: translateZ(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+// --------------------------------
+// |     BORDER ANIMATION         |
+// --------------------------------
+// border growing animation
+div.grid-item.show-on-scroll {
+  //vertical border
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px; /* This is the thickness of your border */
+    background: black; /* This is the color of your border */
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition: transform 1.5s ease-in-out; /* Adjust time as needed */
+  }
+  &.is-visible::after {
+    transform: scaleY(1);
+  }
+  //horizontal border
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px; /* This is the thickness of your border */
+    background: black; /* This is the color of your border */
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 1.5s ease-in-out; /* Adjust time as needed */
+  }
+  &.is-visible::before {
+    transform: scaleX(1);
+    transform-origin: 0% 50%;
+  }
+}
+// for the top border and left border, we are setting it to the grid element
+.grid.show-on-scroll {
+  //vertical border
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px; /* This is the thickness of your border */
+    background: black; /* This is the color of your border */
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition: transform 3s ease-in-out; /* Adjust time as needed */
+  }
+  &.is-visible::after {
+    transform: scaleY(1);
+  }
+  //horizontal border for the first grid only
+  &.first-grid {
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 1px; /* This is the thickness of your border */
+      background: black; /* This is the color of your border */
+      transform: scaleX(0);
+      transform-origin: bottom left;
+      transition: transform 1.5s ease-in-out; /* Adjust time as needed */
+    }
+    &.is-visible::before {
+      transform: scaleX(1);
+      transform-origin: 0% 50%;
+    }
+  }
+}
+
+// --------------------------------
+// |     LOGO SPIN ANIMATION      |
+// --------------------------------
+#spin-logo.show-on-scroll {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  &.is-visible {
+    animation: spin 5s linear infinite;
+    opacity: 1;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.little-fish {
+  animation: littleFishFloat 5s ease-in-out infinite alternate;
+}
+.little-coral {
+  animation: coralSwing 3s ease-in-out infinite alternate;
+}
+@keyframes littleFishFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* This will move the fish up by 20px */
+  }
+}
+
+@keyframes coralSwing {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg); /* Sways slightly to the right */
+  }
+  /* Optionally, add another keyframe if you want it to sway in both directions */
+  25% {
+    transform: rotate(-5deg); /* Sways slightly to the left */
+  }
+}

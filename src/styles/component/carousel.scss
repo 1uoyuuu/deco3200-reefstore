@@ -1,10 +1,10 @@
 // Required Core Stylesheet
-// @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
-// // Optional Theme Stylesheet
-// @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
 
 .glide {
   .glide__slide {
-    background-color: pink;
+    border: 1px solid black;
   }
 }

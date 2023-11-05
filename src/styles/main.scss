@@ -1,10 +1,14 @@
 @import "base/reset.scss", "base/typography.scss", "base/color.scss";
 @import "component/navigation.scss", "component/grid.scss",
-  "component/button.scss", "component/carousel.scss";
+  "component/button.scss", "component/carousel.scss", "component/animation.scss";
 
 @import "page/homepage.scss", "page/get_involved.scss", "page/visit.scss",
+<<<<<<< HEAD
   "page/learn_more.scss", "page/about.scss", "page/gbr.scss";
 
+=======
+  "page/learn.scss";
+>>>>>>> 767e38faf39bb818fa2a54a6db168a9ed093baa1
 
 // import subpage stylesheet
 @import "page/create.scss";
@@ -29,4 +33,8 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+section:last-of-type {
+  margin-bottom: 4rem;
 }

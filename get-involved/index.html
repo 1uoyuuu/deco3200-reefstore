@@ -53,7 +53,7 @@
         <nav id="overlay-menu">
             <ul>
                 <li><span>(01)</span><a href="/get-involved/">Get Involved</a><a
-                        href="/get-involved/create/create.html">Create</a><a href="#">Donate</a>
+                        href="/get-involved/create/">Create</a><a href="#">Donate</a>
                 </li>
                 <li><span>(02)</span><a href="/learn/">Learn</a><a href="#">How it works</a><a href="#">Why it
                         matters</a></li>
@@ -83,7 +83,7 @@
                 <canvas></canvas>
             </div>
             <div class="grid-item grid-col-6 grid-row-1 center">
-                <button class="cta-btn">Start creating</button>
+                <button class="cta-btn pink">Start creating</button>
             </div>
         </section>
         <section id="go-donate" class="grid">
@@ -102,7 +102,7 @@
                 </p>
             </div>
             <div class="grid-item grid-col-6 grid-row-1 center">
-                <button class="cta-btn">Donate now</button>
+                <button class="cta-btn pink">Donate now</button>
             </div>
         </section>
         <section id="gallery" class="grid">
@@ -110,37 +110,48 @@
                 <h1>Check out all the beautiful design by others to gain some inspirations, everyone is the best
                     designer here.</h1>
             </div>
-            <div class="grid-item grid-col-12 grid-row-1">
-                <h2>Gallery</h2>
-            </div>
-            <div class="grid-item grid-col-12 grid-row-2">
+            <div id="gallery" class="grid-item grid-col-12 grid-row-3">
                 <div class="glide">
+                    <div id="gallery-heading" data-glide-el="controls">
+                        <h2>Gallery</h2>
+                        <button class="arrow-btn" data-glide-dir="<"><svg width="44" height="34" viewBox="0 0 44 34"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.3125 17L44.3125 17" stroke="black" stroke-width="2" />
+                                <path d="M18 1L2 17L18 33" stroke="black" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <button class="arrow-btn" data-glide-dir=">"><svg width="44" height="34" viewBox="0 0 44 34"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M42 17H0" stroke="black" stroke-width="2" />
+                                <path d="M26.3125 33L42.3125 17L26.3125 0.999998" stroke="black" stroke-width="2" />
+                            </svg>
+                        </button>
+                    </div>
                     <div class="glide__track" data-glide-el="track">
                         <ul class="glide__slides">
-                            <li class="glide__slide"><img src="/src/images/about-us-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/get-involved-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/diver-planting-reef-under-the-sea.jpg"
-                                    alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/about-us-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/get-involved-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/diver-planting-reef-under-the-sea.jpg"
-                                    alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/about-us-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/get-involved-bg.jpg" alt=""></li>
-                            <li class="glide__slide"><img src="/src/images/diver-planting-reef-under-the-sea.jpg"
-                                    alt=""></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-1.png"
+                                    alt="3d model of coral"></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-2.png"
+                                    alt="3d model of coral"></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-3.png"
+                                    alt="3d model of coral"></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-4.png"
+                                    alt="3d model of coral"></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-5.png"
+                                    alt="3d model of coral"></li>
+                            <li class="glide__slide"><img src="/src/images/gallery/gallery-model-6.png"
+                                    alt="3d model of coral"></li>
+
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="grid-item grid-col-12 grid-row-1">
-                <span>See more</span>
             </div>
 
         </section>
     </main>
     <script type="module" src="main.js"></script>
-    <script type="module" src="/src/scripts/model.js"></script>
+    <script type="module" src="/src/scripts/gallery-carousel.js"></script>
+    <script type="module" src="/src/scripts/get-involved-coral.js"></script>
 </body>
 
 </html>

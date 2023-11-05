@@ -1,18 +1,41 @@
 button {
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 // big buttons with rounded edge
 .cta-btn {
-  background-color: $bg;
+  color: black;
   border: 1px solid black;
+  min-height: 6rem;
+  min-width: 20rem;
   border-radius: 200px;
   padding: 2rem 4rem;
   font-size: 2rem;
+  background: transparent;
+  &.pink {
+    background-image: url("/src/images/helper/fill-bg-pink.png");
+  }
+  &.green {
+    background-image: url("/src/images/helper/fill-bg-green.png");
+  }
+  &.blue {
+    background-image: url("/src/images/helper/fill-bg-blue.png");
+  }
+  &.orange {
+    background-image: url("/src/images/helper/fill-bg-orange.png");
+  }
+  //by default it should be black
+  background-image: url("/src/images/helper/fill-bg-black.png");
+  background-repeat: repeat-x;
+  background-position: 0 -250%;
+  transition: 0.8s ease;
 
   &:hover {
-    transition: all 0.3s ease;
-    transform: translateY(5%);
+    background-position: center;
   }
 }
 
@@ -30,4 +53,12 @@ button {
   span {
     font-size: 3rem;
   }
+}
+
+.arrow-btn {
+  padding: 2%;
+  background-color: $bg;
+  border: 1px solid black;
+  margin: -1px; //remove overlapping border
+  aspect-ratio: 1 / 1; //make sure the button stays as square
 }
