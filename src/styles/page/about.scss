@@ -1,9 +1,9 @@
-#get-involved-page {
+#about-page {
   #hero-section {
     height: 100vh; // Take up 100% of the viewport height
     width: 100%; // Take up 100% of the viewport width
 
-    background-image: url("/src/images/get-involved-bg.jpg");
+    background-image: url("/public/src/images/about-us-bg.jpg");
     background-size: cover; // Cover the entire window
     background-repeat: no-repeat; // Do not repeat the image
     background-position: center center; // Center the image
@@ -20,5 +20,13 @@
       color: $pink;
       width: 60%;
     }
+    
+   
   }
+
+  #yellow-bg {
+    background-color: $orange;
+    text-align: center;
+  }
+
 }
