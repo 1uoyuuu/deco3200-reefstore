@@ -38,10 +38,15 @@
   .grid-row-4 {
     grid-row-start: span 4;
   }
+  .grid-row-5{
+    grid-row-start: span 5;
+  }
 }
 
 .grid-item {
   position: relative;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
   & > *:only-child {
     padding: 1rem;
   }
