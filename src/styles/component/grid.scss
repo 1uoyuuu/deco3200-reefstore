@@ -42,11 +42,13 @@
   .grid-row-4 {
     grid-row-start: span 4;
   }
+  .grid-row-5 {
+    grid-row-start: span 5;
+  }
 }
 
 .grid-item {
   position: relative;
-
   & > *:only-child {
     padding: 1rem;
   }
