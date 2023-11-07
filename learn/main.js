@@ -1,7 +1,9 @@
 import "/src/scripts/navigation.js";
+import "/src/scripts/parallex.js";
+import "/src/scripts/show-on-scroll.js";
+import "/src/scripts/msf-control.js"; //for switching to different section of coral's importance
+import "/src/scripts/story-control.js";
 
-//for switching to different section of coral's importance
-import "/src/scripts/msf-control.js";
 import gsap from "gsap";
 const grid = document.querySelector(".expansion-grid");
 const items = document.querySelectorAll(".expansion-item");

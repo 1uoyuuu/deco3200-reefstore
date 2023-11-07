@@ -9,7 +9,7 @@
 
 h1 {
   font-size: 5rem;
-  letter-spacing: -2;
+  letter-spacing: 0.01rem;
   line-height: 1.2;
 }
 
@@ -30,4 +30,8 @@ p {
 span {
   font-size: 3.5rem;
   font-weight: 300;
+}
+
+b {
+  font-weight: 500;
 }

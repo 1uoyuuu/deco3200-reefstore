@@ -24,13 +24,14 @@ let controls;
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
-const model = "/src/models/coral-type-two/scene.gltf";
+const model = "/src/models/acropora-coral/model.gltf";
 //Load the file
 loader.load(
   model,
   function (gltf) {
     //If the file is loaded, add it to the scene
     object = gltf.scene;
+    object.position.y = -20;
     scene.add(object);
   },
   function (xhr) {
@@ -50,26 +51,34 @@ const renderer = new THREE.WebGLRenderer({
 }); //Alpha: true allows for the transparent background
 renderer.setSize(coralContainer.offsetWidth, coralContainer.offsetHeight);
 //Set how far the camera will be from the 3D model
-camera.position.z = 5;
+camera.position.z = 36;
 
 //Add lights to the scene, so we can actually see the 3D model
-const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-topLight.position.set(500, 500, 500); //top-left-ish
-topLight.castShadow = true;
-scene.add(topLight);
+const frontLight = new THREE.DirectionalLight(0xffffff, 10); // (color, intensity)
+frontLight.position.set(0, 0, 50);
+scene.add(frontLight);
 
-const ambientLight = new THREE.AmbientLight(0x333333, 5);
-scene.add(ambientLight);
+const backLight = new THREE.DirectionalLight(0xffffff, 10); // You can adjust the intensity
+backLight.position.set(0, 0, -50); // Opposite direction to the front light
+scene.add(backLight);
+
+const leftLight = new THREE.DirectionalLight(0xffffff, 15); // You can adjust the intensity
+leftLight.position.set(-50, 0, 0); // Opposite direction to the front light
+scene.add(leftLight);
+const rightLight = new THREE.DirectionalLight(0xffffff, 15); // You can adjust the intensity
+rightLight.position.set(50, 0, 0); // Opposite direction to the front light
+scene.add(rightLight);
 
 //This adds controls to the camera, so we can rotate / zoom it with the mouse
 controls = new OrbitControls(camera, renderer.domElement);
-
+//Turn on the autorotate property of OrbitControls
+controls.autoRotate = true;
+controls.update();
 //Render the scene
 function animate() {
   requestAnimationFrame(animate);
   //Here we could add some code to update the scene, adding some automatic movement
-
-  //Make the eye move
+  controls.update();
   renderer.render(scene, camera);
 }
 
