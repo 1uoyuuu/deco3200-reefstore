@@ -1,0 +1,159 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                2.220446049250313e-16,
+                -1,
+                0,
+                0,
+                1,
+                2.220446049250313e-16,
+                0,
+                0,
+                0,
+                0,
+                1
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "coral tube_st mtl",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "coral_tube_01",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 1216512
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 135168,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 135168,
+            "byteLength": 405504,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 540672,
+            "byteLength": 405504,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 946176,
+            "byteLength": 270336,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 33792,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 33792,
+            "min": [
+                -12.852926254272461,
+                -12.587875366210938,
+                0
+            ],
+            "max": [
+                11.779289245605469,
+                11.999303817749023,
+                37.325801849365234
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 33792,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 33792,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "coral tube_01_diffuse.jpg"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        }
+    ]
+}
