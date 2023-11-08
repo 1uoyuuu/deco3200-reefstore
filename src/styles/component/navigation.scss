@@ -1,21 +1,21 @@
 // ------------------top navigation bar------------------
 #top-nav {
-  padding: 2%;
+  padding: 1% 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5rem;
+  height: 4rem;
   width: 100%;
   position: fixed;
   z-index: 999;
   border-bottom: 1px solid black;
   #logo {
-    width: 5rem;
+    width: 4rem;
   }
   #logo-icon {
     //make sure to stay still
     position: fixed;
-    left: 48.8%;
+    left: 49.1%;
     // rotate animation when scrolling
     // credit: https://css-tricks.com/books/greatest-css-tricks/scroll-animation/
     animation: rotate 1s linear infinite;

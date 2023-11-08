@@ -1,9 +1,5 @@
 button {
   cursor: pointer;
-
-  &:active {
-    transform: scale(0.9);
-  }
 }
 
 // big buttons with rounded edge
@@ -15,6 +11,7 @@ button {
   border-radius: 200px;
   padding: 2rem 4rem;
   font-size: 2rem;
+  text-transform: capitalize;
   background: transparent;
   &.pink {
     background-image: url("/src/images/helper/fill-bg-pink.png");
@@ -32,10 +29,13 @@ button {
   background-image: url("/src/images/helper/fill-bg-black.png");
   background-repeat: repeat-x;
   background-position: 0 -250%;
-  transition: 0.8s ease;
+  transition: all 0.5s ease;
 
   &:hover {
     background-position: center;
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }
 
@@ -60,5 +60,6 @@ button {
   background-color: $bg;
   border: 1px solid black;
   margin: -1px; //remove overlapping border
+  margin-right: 0px;
   aspect-ratio: 1 / 1; //make sure the button stays as square
 }

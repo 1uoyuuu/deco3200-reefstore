@@ -1,13 +1,23 @@
 // --------------------------------
 // |     IMAGE SCALE UP           |
 // --------------------------------
-img.show-on-scroll {
+img.show-on-scroll.scale-up {
   will-change: transform, opacity;
   transform: scale(0);
   opacity: 0;
   transition: transform 1.2s ease;
+  transition-delay: 0.3s;
   &.is-visible {
     transform: scale(1);
+    opacity: 1;
+  }
+}
+img.show-on-scroll.fade-in {
+  will-change: opacity;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  transition-delay: 0.5s;
+  &.is-visible {
     opacity: 1;
   }
 }
@@ -16,6 +26,7 @@ img.show-on-scroll.rotate-in {
   transform: translateZ(-200px) rotate(-45deg) scale(0);
   opacity: 0;
   transition: transform 0.8s ease-in;
+  transition-delay: 0.3s;
   &.is-visible {
     transform: translateZ(0) rotate(0) scale(1);
     opacity: 1;
@@ -25,7 +36,8 @@ img.show-on-scroll.rotate-in {
 // |     BORDER ANIMATION         |
 // --------------------------------
 // border growing animation
-div.grid-item.show-on-scroll {
+div.grid-item.show-on-scroll,
+div.expansion-item.show-on-scroll {
   //vertical border
   &::after {
     content: "";
@@ -147,4 +159,23 @@ div.grid-item.show-on-scroll {
   25% {
     transform: rotate(-5deg); /* Sways slightly to the left */
   }
+}
+
+// --------------------------------
+// |         BLINK ANIMATION      |
+// --------------------------------
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.2;
+  }
+}
+
+.blink {
+  animation: blink 3s infinite both;
 }

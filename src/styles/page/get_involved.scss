@@ -1,44 +1,72 @@
 #get-involved-page {
   #hero-section {
-    height: 100vh; // Take up 100% of the viewport height
-    width: 100%; // Take up 100% of the viewport width
-
-    background-image: url("/src/images/get-involved-bg.jpg");
-    background-size: cover; // Cover the entire window
-    background-repeat: no-repeat; // Do not repeat the image
-    background-position: center center; // Center the image
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      z-index: 1; /* The image is behind the text */
+    }
 
     h1 {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       text-transform: uppercase;
-
+      z-index: 2;
+      margin: auto;
       //adjust to fit different pages
       color: $pink;
       width: 60%;
+      letter-spacing: 0.2rem;
     }
   }
-  #coral-display {
-    padding: 0;
-    min-height: 500px;
+  h1 {
+    margin: 5rem;
   }
 
+  #go-create {
+    h1 {
+      width: 80%;
+    }
+    p {
+      margin: 5rem;
+    }
+    #coral-display {
+      padding: 0;
+      min-height: 500px;
+    }
+  }
+  #go-donate {
+    h1 {
+      width: 80%;
+    }
+    p {
+      margin: 2rem 5rem;
+    }
+  }
   #gallery {
-    padding: 0;
     #gallery-heading {
       display: flex;
       align-items: center;
-      padding-left: 2rem;
+      padding-left: 6rem;
       border-bottom: 1px solid black;
       h2 {
         flex: 2;
       }
     }
+    .glide {
+      padding: 0 !important;
+    }
     .glide__track {
-      margin: 2rem;
+      padding: 2rem;
     }
   }
 }

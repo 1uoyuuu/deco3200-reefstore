@@ -32,8 +32,9 @@ const backBtn = document.querySelector(
 const visibleImage = imageContainer.querySelector("img:nth-child(1)");
 const hiddenImage = document.getElementById("preloaded-image");
 
-const progressDots = document.querySelectorAll(".progress-dot");
-console.log(progressDots);
+const progressDots = document.querySelectorAll(
+  "#importance-control .progress-dot"
+);
 
 let count = 0; //initilise the count as 0 for simplicity;
 
