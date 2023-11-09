@@ -11,6 +11,7 @@ let camera;
 let renderer;
 let mesh;
 let material;
+let lights = [];
 // ***********************************
 // *      Customiser GUI Setup       *
 // ***********************************
@@ -20,14 +21,14 @@ const gui = new GUI({
   title: "Coral Customiser",
 });
 material = {
-  type: "one",
-  roughness: 0.4,
+  type: "acropora",
+  roughness: 1,
   metalness: 0,
-  baseColor: "#ff0000",
+  baseColor: "#ff5c64",
   emissive: "#000000",
 };
-gui.add(material, "type", ["one", "two", "three"]).onFinishChange(() => {
-  initCoral("coral-type-" + material.type);
+gui.add(material, "type", ["acropora", "branch", "lobo"]).onFinishChange(() => {
+  initCoral("type-" + material.type);
 });
 const materialFolder = gui.addFolder("Material");
 materialFolder.add(material, "roughness", 0, 1); //slider
@@ -58,7 +59,7 @@ function initScene() {
     1000
   );
   //Set how far the camera will be from the 3D model
-  camera.position.z = 10;
+  camera.position.z = 15;
   // **************************
   // *    Renderer Setup      *
   // **************************
@@ -78,14 +79,27 @@ function initScene() {
   // **************************
   // *    Lighting Setup      *
   // **************************
-  const topLight = new THREE.DirectionalLight(0xffffff, 10); // (color, intensity)
-  topLight.position.set(500, 500, 500); //top-left-ish
-  topLight.castShadow = true;
-  scene.add(topLight);
+  //Add lights to the scene, so we can actually see the 3D model
+  const frontLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
+  frontLight.position.set(0, 0, 50);
+  scene.add(frontLight);
 
-  const ambientLight = new THREE.AmbientLight(0x333333, 5);
-  scene.add(ambientLight);
+  const backLight = new THREE.DirectionalLight(0xffffff, 1); // You can adjust the intensity
+  backLight.position.set(0, 0, -50); // Opposite direction to the front light
+  scene.add(backLight);
 
+  const leftLight = new THREE.DirectionalLight(0xffffff, 2); // You can adjust the intensity
+  leftLight.position.set(-50, 0, 0); // Opposite direction to the front light
+  scene.add(leftLight);
+  const rightLight = new THREE.DirectionalLight(0xffffff, 2); // You can adjust the intensity
+  rightLight.position.set(50, 0, 0); // Opposite direction to the front light
+  scene.add(rightLight);
+
+  scene.traverse((object) => {
+    if (object instanceof THREE.DirectionalLight) {
+      lights.push(object);
+    }
+  });
   //OrbitControls allow the camera to move around the scene
   // **************************
   // *    Control Setup       *
@@ -98,8 +112,8 @@ function initScene() {
   controls.enableDamping = true;
   controls.enablePan = false;
   controls.dampingFactor = 0.1;
-  controls.autoRotate = false; // Toggle this if you'd like the chair to automatically rotate
-  controls.autoRotateSpeed = 0.2; // 30
+  controls.autoRotate = true; // Toggle this if you'd like the chair to automatically rotate
+  controls.autoRotateSpeed = 2; // 30
   // **************************
   // *    Animation Setup     *
   // **************************
@@ -121,11 +135,24 @@ function initScene() {
 
 setupMSF(document.getElementById("create-form"));
 
+const coralDescription = {
+  acropora:
+    "Acropora is a genus of small polyp stony coral in the phylum Cnidaria. Some of its species are known as table coral, elkhorn coral, and staghorn coral. Acropora species are some of the major reef corals responsible for building the immense calcium carbonate substructure that supports the thin living skin of a reef.",
+  branch:
+    "Colonies of branch coral consist of thick upright, and sometimes horizontal, branches growing from a sprawling or encrusting base. There are side branches and small branchlets which resemble knobs. The corallites are evenly spread. The colour of this coral varies, and may be pinkish-brown or some shade of green.",
+  lobo: "Lobophyllia, commonly called lobed brain coral or lobo coral, is a genus of large polyp stony corals. Members of this genus are sometimes found in reef aquariums.",
+};
 function initCoral(coralType) {
+  const heading = document.getElementById("coral-type-heading");
+  const description = document.getElementById("coral-description");
+
+  const coralName = coralType.substring(5);
+  heading.textContent = `How would you like to customise your ${coralName} coral?`;
+  description.textContent = `${coralDescription[`${coralName}`]}`;
   // **************************
   // *      Mesh Setup        *
   // **************************
-  const MODEL_PATH = `/src/models/${coralType}/scene.gltf`;
+  const MODEL_PATH = `/src/models/${coralType}/model.gltf`;
   console.log("trying to load model: " + coralType);
   // **************************
   // *      Loader Setup      *
@@ -138,12 +165,16 @@ function initCoral(coralType) {
     MODEL_PATH,
     function (gltf) {
       mesh = gltf.scene;
-      // Set the models initial scale
-      mesh.scale.set(1, 1, 1);
-      mesh.rotation.y = Math.PI / 4;
-
       // Offset the y position a bit
-      mesh.position.y = -3;
+      mesh.position.y = -5;
+      // Set the models initial scale
+      if (coralType === "type-branch") {
+        mesh.scale.set(0.5, 0.5, 0.5);
+      } else if (coralType === "type-acropora") {
+        mesh.position.y = -10;
+      } else if (coralType === "type-lobo") {
+        mesh.position.y = -3;
+      }
       // **************************
       // *    Material Setup      *
       // **************************
@@ -158,7 +189,45 @@ function initCoral(coralType) {
     }
   );
 }
+function initPreset(coralType) {
+  // **************************
+  // *      Mesh Setup        *
+  // **************************
+  const MODEL_PATH = `/src/models/preset/${coralType}/model.gltf`;
+  console.log("trying to load model: " + coralType);
+  // **************************
+  // *      Loader Setup      *
+  // **************************
+  // Destroy existing coral if there is any.
+  DestroyCoral(mesh);
+  const loader = new GLTFLoader();
+  loader.load(
+    MODEL_PATH,
+    function (gltf) {
+      mesh = gltf.scene;
+      // Offset the y position a bit
+      mesh.position.y = -5;
+      // Set the models initial scale
+      if (coralType === "type-branch") {
+        mesh.scale.set(0.5, 0.5, 0.5);
+      } else if (coralType === "type-acropora") {
+        mesh.position.y = -10;
+      } else if (coralType === "type-lobo") {
+        mesh.position.y = -3;
+      }
+      // **************************
+      // *    Material Setup      *
+      // **************************
 
+      // Add the model to the scene
+      scene.add(mesh);
+    },
+    undefined,
+    function (error) {
+      console.error(error);
+    }
+  );
+}
 function setMaterial(material, mesh) {
   const texture = new THREE.CanvasTexture(new FlakesTexture());
   texture.wrapS = THREE.RepeatWrapping;
@@ -215,12 +284,41 @@ function setupMSF(form) {
   //remove the back button for the first page, and the next button for the last page
   backBtns[0].classList.add("msf-visually-hide");
   nextBtns[msfPages.length - 1].classList.add("msf-hide");
-  //if the form is gadget form, then some magical tweak will be added,
+
+  //move the 3d inspector from result section and cutomise section
   const customiseSection = document.getElementById("customise-section");
   const resultSection = document.getElementById("result-section");
   const coralInspector = document.getElementById("coral-inspector");
   const coralCustomiser = document.getElementById("coral-customiser");
   const resultButtons = document.getElementById("result-buttons");
+
+  const createOptions = document.querySelectorAll(".create-option");
+  const coralOptions = document.querySelectorAll(".preset-option");
+
+  let designMode, coralPreset;
+  createOptions.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      createOptions.forEach((opt) => opt.classList.remove("active-option"));
+      opt.classList.add("active-option");
+      designMode = document.querySelector(".create-option.active-option").id;
+      nextBtns[0].disabled = false;
+    });
+  });
+  coralOptions.forEach((opt) => {
+    opt.addEventListener("click", () => {
+      coralOptions.forEach((opt) => opt.classList.remove("active-option"));
+      opt.classList.add("active-option");
+      coralPreset = document
+        .querySelector(".preset-option.active-option")
+        .getAttribute("data-number");
+      nextBtns[1].disabled = false;
+    });
+  });
+
+  //By default the nextBtn should be disabled until user select a design mode
+  nextBtns[0].disabled = true;
+  // nextBtns[1].disabled = true;
+
   //user can always goes back to the previous page without any problem
   //so the back buttons should work when user click it
   backBtns.forEach((btn) => {
@@ -228,11 +326,16 @@ function setupMSF(form) {
       //prevent automatically refreshing the page
       event.preventDefault();
       hidePage(currentPage);
+      if (designMode === "option-make-your-own" && msfIndex == 2) {
+        msfIndex--;
+      }
+      if (designMode === "option-choose-preset" && msfIndex == 3) {
+        msfIndex--;
+      }
       if (msfIndex !== 0) {
         //decrement the page index
         msfIndex--;
       }
-      nextBtns[msfIndex].disabled = false;
       //change the current page
       currentPage = msfPages[msfIndex];
       showPage(currentPage);
@@ -244,7 +347,7 @@ function setupMSF(form) {
         } else {
           initScene();
         }
-        initCoral("coral-type-" + material.type);
+        initCoral("type-" + material.type);
       }
 
       if (msfIndex == 3) {
@@ -257,15 +360,19 @@ function setupMSF(form) {
       //prevent automatically refreshing the page
       event.preventDefault();
       hidePage(currentPage);
+      if (designMode === "option-make-your-own" && msfIndex == 0) {
+        msfIndex++;
+      }
+      if (designMode === "option-choose-preset" && msfIndex == 1) {
+        msfIndex++;
+      }
       if (msfIndex !== msfPages.length - 1) {
         //decrement the page index
         msfIndex++;
       }
-      nextBtns[msfIndex].disabled = false;
       //change the current page
       currentPage = msfPages[msfIndex];
       showPage(currentPage);
-
       if (msfIndex == 2) {
         customiseSection.insertBefore(coralInspector, coralCustomiser);
         if (mesh && scene) {
@@ -273,11 +380,27 @@ function setupMSF(form) {
         } else {
           initScene();
         }
-        initCoral("coral-type-" + material.type);
+        lights.forEach((light) => {
+          light.intensity = 2;
+        });
+        camera.position.z = 15;
+        initCoral("type-" + material.type);
       }
 
       if (msfIndex == 3) {
         resultSection.insertBefore(coralInspector, resultButtons);
+      }
+      if (designMode == "option-choose-preset" && msfIndex == 3) {
+        if (mesh && scene) {
+          DestroyCoral(mesh);
+        } else {
+          initScene();
+        }
+        lights.forEach((light) => {
+          light.intensity = 5;
+        });
+        camera.position.z = 40;
+        initPreset("preset-" + 6); // need fix
       }
     });
   });

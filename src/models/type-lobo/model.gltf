@@ -1,0 +1,150 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "nmodel_16_13_lobophylia_mat",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE",
+            "normalTexture": {
+                "index": 1
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "nmodel_16_13_lobophylia",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 601128
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 66792,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 66792,
+            "byteLength": 200376,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 267168,
+            "byteLength": 200376,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 467544,
+            "byteLength": 133584,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 16698,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 16698,
+            "min": [
+                -6.7441534996032715,
+                -0.9846856594085693,
+                -7.136943817138672
+            ],
+            "max": [
+                6.796073913574219,
+                7.395153999328613,
+                7.115099906921387
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 16698,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 16698,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "nmodel_16_13_lobophylia_Diffuse.png"
+        },
+        {
+            "uri": "nmodel_16_13_lobophylia_Normal.png"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        },
+        {
+            "source": 1
+        }
+    ]
+}
