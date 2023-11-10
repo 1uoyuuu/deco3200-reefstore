@@ -4,42 +4,7 @@ import createGlobe from "cobe";
 let currentPhi = 0;
 let currentTheta = 0;
 
-// rotating angle
-let focusPhi = 0;
-let focusTheta = 0;
-
-const doublePi = Math.PI * 2;
-
 let canvas = document.getElementById("cobe");
-
-const asia = document.getElementById("asia");
-const europe = document.getElementById("europe");
-const northAmerica = document.getElementById("north-america");
-const oceania = document.getElementById("oceania");
-const southAmerica = document.getElementById("south-america");
-//goes to europe
-asia.addEventListener("mouseover", () => {
-  // i don't know how to do it mathematically, so here is manual tweaking
-  focusPhi = -1.7;
-  focusTheta = 0.8;
-});
-//goes to central east
-europe.addEventListener("mouseover", () => {
-  focusPhi = -2.3;
-  focusTheta = 0.6;
-});
-northAmerica.addEventListener("mouseover", () => {
-  focusPhi = -2.89;
-  focusTheta = 0.4;
-});
-oceania.addEventListener("mouseover", () => {
-  focusPhi = 0.2;
-  focusTheta = 1.2;
-});
-southAmerica.addEventListener("mouseover", () => {
-  focusPhi = 0.2;
-  focusTheta = 1.2;
-});
 
 createGlobe(canvas, {
   devicePixelRatio: 1,
@@ -58,26 +23,18 @@ createGlobe(canvas, {
   offset: [0, 0],
   //A marker is an object of location and size properties. location is a pair of latitude and longitude:
   markers: [
-    {
-      //phillipines
-      location: [8.7, 119.8],
-      size: 0.05,
-    },
-    {
-      //indonesia
-      location: [-0.8, 130.53],
-      size: 0.05,
-    },
-    {
-      //thailand
-      location: [8.6, 97.2],
-      size: 0.05,
-    },
-    {
-      //australia
-      location: [-15.5, 124.14],
-      size: 0.05,
-    },
+    { location: [9.19, 121.88], size: 0.03 }, // Tubbataha Reef, Philippines
+    { location: [-0.47, 130.84], size: 0.03 }, // Raja Ampat, Indonesia
+    { location: [8.64, 97.64], size: 0.03 }, // Similan Islands, Thailand
+    { location: [38.55, -28.64], size: 0.03 }, // Azores, Portugal
+    { location: [36.0, 30.0], size: 0.03 }, // Mediterranean Coast, Turkey
+    { location: [17.5, -88.2], size: 0.03 }, // Mesoamerican Reef, Belize
+    { location: [12.5, -70.0], size: 0.03 }, // Molokai Reef, Aruba
+    { location: [-23.44, 151.91], size: 0.03 }, // Great Barrier Reef, Australia
+    { location: [-21.93, 113.93], size: 0.03 }, // Ningaloo Coast, Western Australia
+    { location: [-15.28, 124.58], size: 0.03 }, // Montgomery Reef, Western Australia
+    { location: [-0.95, -90.96], size: 0.03 }, // Galapagos Islands, Ecuador
+    { location: [12.15, -68.27], size: 0.03 }, // Bonaire, Venezuela
   ],
   //A callback function called when a new frame is rendered
   // onRender: (state) => {
