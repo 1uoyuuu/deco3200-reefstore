@@ -14,7 +14,7 @@ gsap.utils.toArray("#comparison-section").forEach((section) => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
-      markers: true, //marker helper
+      // markers: true, //marker helper
     },
     defaults: { ease: "none" },
   });

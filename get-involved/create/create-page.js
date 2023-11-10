@@ -40,6 +40,23 @@ materialFolder.onChange(() => {
   setMaterial(material, mesh);
 });
 
+// ********************************
+// *      Image Capture Setup     *
+// ********************************
+let snap = false;
+
+const capture = () => {
+  const cav = document.querySelector("#coral-inspector canvas");
+  const base64 = cav.toDataURL("img/png");
+  sessionStorage.setItem("capturedImage", base64); //save the image for displaying in another window
+  console.log("Image saved in sessionStorage");
+};
+
+document.getElementById("save-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  snap = true;
+});
+
 //Create a Three.JS Scene
 // **************************
 // *      Scene Setup       *
@@ -120,8 +137,12 @@ function initScene() {
   //Render the scene
   function animate() {
     controls.update();
-    renderer.render(scene, camera);
     requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+    if (snap) {
+      capture();
+      snap = false;
+    }
   }
   //Add a listener to the window, so we can resize the window and the camera
   window.addEventListener("resize", function () {
@@ -134,7 +155,12 @@ function initScene() {
 }
 
 setupMSF(document.getElementById("create-form"));
-
+//for the simplicity of this demo, there will be no information operation or actually submitting the form here
+document.getElementById("create-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Stop the form from submitting
+  snap = true; //save the newly coral
+  window.location.href = "/get-involved/";
+});
 const coralDescription = {
   acropora:
     "Acropora is a genus of small polyp stony coral in the phylum Cnidaria. Some of its species are known as table coral, elkhorn coral, and staghorn coral. Acropora species are some of the major reef corals responsible for building the immense calcium carbonate substructure that supports the thin living skin of a reef.",
@@ -317,7 +343,7 @@ function setupMSF(form) {
 
   //By default the nextBtn should be disabled until user select a design mode
   nextBtns[0].disabled = true;
-  // nextBtns[1].disabled = true;
+  nextBtns[1].disabled = true;
 
   //user can always goes back to the previous page without any problem
   //so the back buttons should work when user click it
@@ -400,7 +426,7 @@ function setupMSF(form) {
           light.intensity = 5;
         });
         camera.position.z = 40;
-        initPreset("preset-" + 6); // need fix
+        initPreset("preset-" + coralPreset); // need fix
       }
     });
   });
