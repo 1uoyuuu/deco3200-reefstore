@@ -1,0 +1,175 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                2.220446049250313e-16,
+                -1,
+                0,
+                0,
+                1,
+                2.220446049250313e-16,
+                0,
+                0,
+                7.73289155960083,
+                3.3801543963818403e-7,
+                1
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "coral elkhorn_st mtl",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0,
+                    "extensions": {
+                        "KHR_texture_transform": {
+                            "offset": [
+                                0,
+                                0
+                            ],
+                            "scale": [
+                                2,
+                                2
+                            ],
+                            "rotation": 0
+                        }
+                    }
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "coral_elkhorn",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 1423872
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 158208,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 158208,
+            "byteLength": 474624,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 632832,
+            "byteLength": 474624,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 1107456,
+            "byteLength": 316416,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 39552,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 39552,
+            "min": [
+                -33.572505950927734,
+                -22.47748374938965,
+                -7.73289155960083
+            ],
+            "max": [
+                33.27288055419922,
+                43.531700134277344,
+                43.26675796508789
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 39552,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 39552,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "coral elkhorn_diffuse.jpg"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        }
+    ],
+    "extensionsUsed": [
+        "KHR_texture_transform"
+    ]
+}

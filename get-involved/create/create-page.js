@@ -161,6 +161,11 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
   snap = true; //save the newly coral
   window.location.href = "/get-involved/";
 });
+const downloadBtn = document.getElementById("download-btn");
+button.addEventListener("click", function (e) {
+  var dataURL = canvas.toDataURL("image/png");
+  button.href = dataURL;
+});
 const coralDescription = {
   acropora:
     "Acropora is a genus of small polyp stony coral in the phylum Cnidaria. Some of its species are known as table coral, elkhorn coral, and staghorn coral. Acropora species are some of the major reef corals responsible for building the immense calcium carbonate substructure that supports the thin living skin of a reef.",
@@ -234,12 +239,46 @@ function initPreset(coralType) {
       // Offset the y position a bit
       mesh.position.y = -5;
       // Set the models initial scale
-      if (coralType === "type-branch") {
+      if (coralType === "preset-1") {
         mesh.scale.set(0.5, 0.5, 0.5);
-      } else if (coralType === "type-acropora") {
         mesh.position.y = -10;
-      } else if (coralType === "type-lobo") {
-        mesh.position.y = -3;
+      } else if (coralType === "preset-2") {
+        mesh.scale.set(0.5, 0.5, 0.5);
+        mesh.position.y = -15;
+      } else if (coralType === "preset-3") {
+        mesh.scale.set(0.6, 0.6, 0.6);
+        mesh.position.y = -12;
+      } else if (coralType === "preset-4") {
+        mesh.scale.set(0.3, 0.3, 0.3);
+        mesh.position.y = -10;
+      } else if (coralType === "preset-5") {
+        mesh.scale.set(0.5, 0.5, 0.5);
+        mesh.position.y = 3;
+      } else if (coralType === "preset-6") {
+        mesh.scale.set(1.2, 1.2, 1.2);
+        mesh.position.y = -10;
+      } else if (coralType === "preset-7") {
+        mesh.scale.set(1.4, 1.4, 1.4);
+        mesh.position.y = -10;
+      } else if (coralType === "preset-8") {
+        mesh.scale.set(0.9, 0.9, 0.9);
+        mesh.position.y = -7;
+      } else if (coralType === "preset-9") {
+        mesh.position.y = -12;
+      } else if (coralType === "preset-10") {
+        mesh.position.y = -10;
+      } else if (coralType === "preset-11") {
+        mesh.scale.set(1.4, 1.4, 1.4);
+        mesh.position.y = -7;
+      } else if (coralType === "preset-12") {
+        mesh.scale.set(1.4, 1.4, 1.4);
+        mesh.position.y = -10;
+      } else if (coralType === "preset-13") {
+        mesh.scale.set(1.4, 1.4, 1.4);
+        mesh.position.y = -7;
+      } else if (coralType === "preset-14") {
+        mesh.scale.set(0.6, 0.6, 0.6);
+        mesh.position.y = -12;
       }
       // **************************
       // *    Material Setup      *

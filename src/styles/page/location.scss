@@ -1,0 +1,32 @@
+.location-page {
+  #location-name {
+    h1 {
+      font-size: 10vh;
+    }
+  }
+  #location-image {
+    img {
+      height: 80vh;
+      object-fit: cover;
+    }
+  }
+
+  #location-map {
+    display: flex;
+    svg {
+      margin: auto;
+      width: 100%;
+    }
+  }
+
+  .description-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    p {
+      text-transform: capitalize;
+      padding: 0;
+    }
+  }
+}

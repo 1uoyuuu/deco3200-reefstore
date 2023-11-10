@@ -3,10 +3,10 @@
   "component/button.scss", "component/carousel.scss", "component/animation.scss";
 
 @import "page/homepage.scss", "page/get_involved.scss", "page/visit.scss",
-  "page/learn.scss", "page/about.scss", "page/gbr.scss";
+  "page/learn.scss", "page/about.scss";
 
 // import subpage stylesheet
-@import "page/create.scss", "page/donate.scss";
+@import "page/create.scss", "page/donate.scss", "page/location.scss";
 
 :root {
   font-size: 12px;

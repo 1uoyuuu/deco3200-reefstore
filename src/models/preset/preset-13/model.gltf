@@ -1,0 +1,141 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "nmodel_16_23_quadricolor_mat",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "quadricolor_deformed",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 8208648
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 912072,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 912072,
+            "byteLength": 2736216,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 3648288,
+            "byteLength": 2736216,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6384504,
+            "byteLength": 1824144,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 228018,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 228018,
+            "min": [
+                -7.725090980529785,
+                -0.2606450021266937,
+                -8.057051658630371
+            ],
+            "max": [
+                7.819704055786133,
+                8.465476036071777,
+                7.729927062988281
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 228018,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 228018,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "nmodel_16_23_quadricolor_Diffuse.png"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        }
+    ]
+}

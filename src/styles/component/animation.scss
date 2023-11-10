@@ -25,8 +25,8 @@ img.show-on-scroll.rotate-in {
   will-change: transform, opacity;
   transform: translateZ(-200px) rotate(-45deg) scale(0);
   opacity: 0;
-  transition: transform 0.8s ease-in;
-  transition-delay: 0.3s;
+  transition: transform 0.5s ease-in;
+  transition-delay: 0.1s;
   &.is-visible {
     transform: translateZ(0) rotate(0) scale(1);
     opacity: 1;

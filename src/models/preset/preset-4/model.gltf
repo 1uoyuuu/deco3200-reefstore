@@ -1,0 +1,285 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0,
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                2.220446049250313e-16,
+                -1,
+                0,
+                0,
+                1,
+                2.220446049250313e-16,
+                0,
+                -2.842291831970215,
+                -9.955362319946289,
+                0.17299753427505493,
+                1
+            ]
+        },
+        {
+            "mesh": 1,
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                2.220446049250313e-16,
+                -1,
+                0,
+                0,
+                1,
+                2.220446049250313e-16,
+                0,
+                0.024034500122070312,
+                0,
+                -0.5342006683349609,
+                1
+            ]
+        }
+    ],
+    "materials": [
+        {
+            "name": "c tube_v2_ground_st",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        },
+        {
+            "name": "coral tube_v2_st",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 1
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "c_tube_v2_ground",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        },
+        {
+            "name": "c_tube_v2_coral",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 5,
+                        "NORMAL": 6,
+                        "TEXCOORD_0": 7
+                    },
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 4
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "model.bin",
+            "byteLength": 1159920
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 47184,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 47184,
+            "byteLength": 141552,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 188736,
+            "byteLength": 141552,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 330288,
+            "byteLength": 94368,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 424656,
+            "byteLength": 81696,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 506352,
+            "byteLength": 245088,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 751440,
+            "byteLength": 245088,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 996528,
+            "byteLength": 163392,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 11796,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 11796,
+            "min": [
+                -19.90050506591797,
+                -21.172313690185547,
+                1.3220696449279785
+            ],
+            "max": [
+                18.50147247314453,
+                21.109939575195312,
+                8.839900970458984
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 11796,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 11796,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 20424,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 20424,
+            "min": [
+                -34.83414077758789,
+                -17.293821334838867,
+                -4.64168119430542
+            ],
+            "max": [
+                29.678361892700195,
+                31.461172103881836,
+                57.432010650634766
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 6,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 20424,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 7,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 20424,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "c t_v2_ground_diffuse.jpg"
+        },
+        {
+            "uri": "tube coral_v2_diffuse.jpg"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        },
+        {
+            "source": 1
+        }
+    ]
+}
