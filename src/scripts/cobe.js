@@ -11,29 +11,35 @@ let focusTheta = 0;
 const doublePi = Math.PI * 2;
 
 let canvas = document.getElementById("cobe");
-// let temperatureBtn = document.getElementById("temperature");
-// let waterBtn = document.getElementById("water");
-// let heatwaveBtn = document.getElementById("heatwave");
-// let precipitationBtn = document.getElementById("precipitation");
-// //goes to europe
-// temperatureBtn.addEventListener("mouseover", () => {
-//   // i don't know how to do it mathematically, so here is manual tweaking
-//   focusPhi = -1.7;
-//   focusTheta = 0.8;
-// });
-// //goes to central east
-// waterBtn.addEventListener("mouseover", () => {
-//   focusPhi = -2.3;
-//   focusTheta = 0.6;
-// });
-// heatwaveBtn.addEventListener("mouseover", () => {
-//   focusPhi = -2.89;
-//   focusTheta = 0.4;
-// });
-// precipitationBtn.addEventListener("mouseover", () => {
-//   focusPhi = 0.2;
-//   focusTheta = 1.2;
-// });
+
+const asia = document.getElementById("asia");
+const europe = document.getElementById("europe");
+const northAmerica = document.getElementById("north-america");
+const oceania = document.getElementById("oceania");
+const southAmerica = document.getElementById("south-america");
+//goes to europe
+asia.addEventListener("mouseover", () => {
+  // i don't know how to do it mathematically, so here is manual tweaking
+  focusPhi = -1.7;
+  focusTheta = 0.8;
+});
+//goes to central east
+europe.addEventListener("mouseover", () => {
+  focusPhi = -2.3;
+  focusTheta = 0.6;
+});
+northAmerica.addEventListener("mouseover", () => {
+  focusPhi = -2.89;
+  focusTheta = 0.4;
+});
+oceania.addEventListener("mouseover", () => {
+  focusPhi = 0.2;
+  focusTheta = 1.2;
+});
+southAmerica.addEventListener("mouseover", () => {
+  focusPhi = 0.2;
+  focusTheta = 1.2;
+});
 
 createGlobe(canvas, {
   devicePixelRatio: 1,
@@ -53,22 +59,23 @@ createGlobe(canvas, {
   //A marker is an object of location and size properties. location is a pair of latitude and longitude:
   markers: [
     {
-      location: [43.63, 6.44],
+      //phillipines
+      location: [8.7, 119.8],
       size: 0.05,
     },
     {
-      //india and parkistan heatwave
-      location: [24.8, 73.53],
+      //indonesia
+      location: [-0.8, 130.53],
       size: 0.05,
     },
     {
-      //central east water availiability
-      location: [29.88, 42.79],
+      //thailand
+      location: [8.6, 97.2],
       size: 0.05,
     },
     {
-      //canada and north extreme precipitation
-      location: [65.62, -108.8],
+      //australia
+      location: [-15.5, 124.14],
       size: 0.05,
     },
   ],

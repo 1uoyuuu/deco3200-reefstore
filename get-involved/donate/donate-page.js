@@ -89,7 +89,8 @@ if (storedImageBase64) {
 } else {
   capturedContainer.forEach((el) => {
     const p = document.createElement("p");
-    p.textContent = "Please create a coral before donation";
+    p.textContent = "Go create a coral first before donation";
+    p.classList.add("blink");
     console.log(el);
     el.appendChild(p);
   });

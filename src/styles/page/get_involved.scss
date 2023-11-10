@@ -69,4 +69,10 @@
       padding: 2rem;
     }
   }
+  .arrow-btn {
+    transition: all 0.3s ease-in;
+    &:hover {
+      background-color: $pink;
+    }
+  }
 }

@@ -17,7 +17,6 @@
       object-fit: cover;
       z-index: 1; /* The image is behind the text */
     }
-
     h1 {
       text-transform: uppercase;
       z-index: 2;
@@ -29,8 +28,12 @@
     }
   }
 
-  #yellow-bg {
-    background-color: $orange;
-    text-align: center;
+  .grid {
+    h1 {
+      margin: 2rem;
+    }
+    p {
+      margin: 5rem 2rem;
+    }
   }
 }

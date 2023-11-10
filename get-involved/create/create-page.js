@@ -51,12 +51,19 @@ const capture = () => {
   sessionStorage.setItem("capturedImage", base64); //save the image for displaying in another window
   console.log("Image saved in sessionStorage");
 };
-
-document.getElementById("save-btn").addEventListener("click", (e) => {
-  e.preventDefault();
+document.getElementById("go-donate-btn").addEventListener("click", (e) => {
   snap = true;
 });
 
+document.getElementById("save-btn").addEventListener("mouseover", (e) => {
+  console.log("HOVERING OVER");
+  snap = true;
+  const dataURL = sessionStorage.getItem("capturedImage");
+  console.log(dataURL);
+  const link = document.getElementById("save-btn");
+  link.href = dataURL;
+  link.download = "my-coral.png";
+});
 //Create a Three.JS Scene
 // **************************
 // *      Scene Setup       *
@@ -161,11 +168,7 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
   snap = true; //save the newly coral
   window.location.href = "/get-involved/";
 });
-const downloadBtn = document.getElementById("download-btn");
-button.addEventListener("click", function (e) {
-  var dataURL = canvas.toDataURL("image/png");
-  button.href = dataURL;
-});
+
 const coralDescription = {
   acropora:
     "Acropora is a genus of small polyp stony coral in the phylum Cnidaria. Some of its species are known as table coral, elkhorn coral, and staghorn coral. Acropora species are some of the major reef corals responsible for building the immense calcium carbonate substructure that supports the thin living skin of a reef.",

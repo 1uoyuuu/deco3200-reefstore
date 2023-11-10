@@ -103,7 +103,15 @@
           }
         }
       }
-
+      .captured-image {
+        display: flex;
+        p {
+          font-size: 4rem;
+          margin: auto;
+          width: 70%;
+          text-align: center;
+        }
+      }
       &.donate-input-container {
         padding: 0;
         gap: 0;
@@ -185,6 +193,10 @@
       button {
         padding: 0 2%;
         height: inherit;
+        &:hover {
+          background-color: $orange;
+          transition: all 0.3s ease;
+        }
       }
       .back-btn {
         border-right: 1px solid black;
